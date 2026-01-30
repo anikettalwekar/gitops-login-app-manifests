@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: login-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: login-app
+  template:
+    metadata:
+      labels:
+        app: login-app
+    spec:
+      containers:
+      - name: login-app
+        image: 132483691061.dkr.ecr.ap-south-1.amazonaws.com/gitops-web-login-app:v1
+        ports:
+        - containerPort: 80
